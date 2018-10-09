@@ -11,7 +11,7 @@
 []
 
 [Kernels]
-  [./poisson]
+  [./laplace]
     type = Diffusion  # A Laplacian operator
     variable = potential  # Operate on the "potential" variable from above
   [../]
