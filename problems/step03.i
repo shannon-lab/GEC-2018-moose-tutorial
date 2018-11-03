@@ -2,32 +2,37 @@
   type = GeneratedMesh
   dim = 1
   nx = 100
-  xmax = 2.54
+  xmax = 0.0254
 []
 
 [Variables]
-  [./n]
+  [./V]
   [../]
 []
 
 [Kernels]
-  [./laplace_coeff]
+  [./poisson]
     type = ExampleMatDiffusion
-    variable = n
-    # diffusivity will now be pulled from a material
+    variable = V
+    # permittivity (eps_R = 1.01) will be taken from a material
+  [../]
+  [./RHS]
+    type = BodyForce
+    variable = V
+    function = 9.05e6 # from (e / eps0)*(5e15 - 4.5e15)
   [../]
 []
 
 [BCs]
   [./left]
     type = DirichletBC
-    variable = n
+    variable = V
     boundary = left
-    value = 1e4
+    value = 100
   [../]
   [./right]
     type = DirichletBC
-    variable = n
+    variable = V
     boundary = right
     value = 0
   [../]
@@ -35,7 +40,7 @@
 
 [Materials]
   [./example_material]
-    type = ExampleDiffusionMaterial
+    type = ExampleMaterial
   [../]
 []
 
