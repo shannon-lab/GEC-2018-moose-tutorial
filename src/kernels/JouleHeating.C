@@ -32,8 +32,8 @@ Real
 JouleHeating::computeQpResidual()
 {
   return -_test[_i][_qp] * _e *
-         (-_diffusivity * std::exp(_electron_density[_qp]) * _grad_electron_density[_qp] +
-          _mobility * std::exp(_electron_density[_qp]) * _grad_potential[_qp]) *
+         (-_diffusivity * _grad_electron_density[_qp] +
+          _mobility * _electron_density[_qp] * _grad_potential[_qp]) *
          _grad_potential[_qp];
 }
 
@@ -48,18 +48,13 @@ JouleHeating::computeQpOffDiagJacobian(unsigned int jvar)
 {
   if (jvar == _electron_id)
     return -_test[_i][_qp] * _e *
-           ((-_diffusivity * _grad_phi[_j][_qp] * std::exp(_electron_density[_qp]) -
-             _diffusivity * _grad_electron_density[_qp] * std::exp(_electron_density[_qp]) *
-                 _phi[_j][_qp]) +
-            _mobility * std::exp(_electron_density[_qp]) * _phi[_j][_qp] * _grad_potential[_qp]) *
+           (-_diffusivity * _grad_phi[_j][_qp] + _mobility * _phi[_j][_qp] * _grad_potential[_qp]) *
            _grad_potential[_qp];
 
   else if (jvar == _potential_id)
     return -_test[_i][_qp] * _e *
-           (-_diffusivity * _grad_electron_density[_qp] * std::exp(_electron_density[_qp]) *
-                _grad_phi[_j][_qp] +
-            2 * _mobility * std::exp(_electron_density[_qp]) * _grad_potential[_qp] *
-                _grad_phi[_j][_qp]);
+           (-_diffusivity * _grad_electron_density[_qp] * _grad_phi[_j][_qp] +
+            2 * _mobility * _electron_density[_qp] * _grad_potential[_qp] * _grad_phi[_j][_qp]);
 
   else
     return 0;

@@ -27,25 +27,24 @@ EnergyExcitation::EnergyExcitation(const InputParameters & parameters)
 Real
 EnergyExcitation::computeQpResidual()
 {
-  return _test[_i][_qp] * _energy_exchange * _k[_qp] * _N_gas * std::exp(_electron_density[_qp]);
+  return _test[_i][_qp] * _energy_exchange * _k[_qp] * _N_gas * _electron_density[_qp];
 }
 
 Real
 EnergyExcitation::computeQpJacobian()
 {
-  return _test[_i][_qp] * _energy_exchange * _N_gas * std::exp(_electron_density[_qp]) *
-         (5e-15 * 0.74 * std::pow((2 / 3), 0.74) * std::pow(std::exp(_u[_qp]), 0.74) *
-              std::exp(-11.56 * 3 / (2 * std::exp(_u[_qp]))) * _phi[_j][_qp] +
-          5e-15 * std::pow((2 / 3), 0.74) * (11.56 * 3 / 2) * std::pow(std::exp(_u[_qp]), -0.26) *
-              std::exp(-11.56 * 3 / (2 * std::exp(_u[_qp]))) * _phi[_j][_qp]);
+  return _test[_i][_qp] * _energy_exchange * _N_gas * _electron_density[_qp] *
+         (5e-15 * 0.74 * std::pow((2 / 3), 0.74) * std::pow(_u[_qp], -0.26) *
+              std::exp(-11.56 * 3 / (2 * _u[_qp])) +
+          5e-15 * std::pow((2 * _u[_qp] / 3), 0.74) * (11.56 * 3 / (2 * _u[_qp] * _u[_qp])) *
+              std::exp(-11.56 * 3 / (2 * _u[_qp])));
 }
 
 Real
 EnergyExcitation::computeQpOffDiagJacobian(unsigned int jvar)
 {
   if (jvar == _electron_id)
-    return _test[_i][_qp] * _energy_exchange * _k[_qp] * _N_gas * std::exp(_electron_density[_qp]) *
-           _phi[_j][_qp];
+    return _test[_i][_qp] * _energy_exchange * _k[_qp] * _N_gas * _phi[_j][_qp];
 
   else
     return 0;
