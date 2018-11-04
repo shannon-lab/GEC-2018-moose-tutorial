@@ -1,0 +1,7 @@
+[Tests]
+  [./test]
+    type = 'Exodiff'
+    input = 'auxkernels.i'
+    exodiff = 'auxkernels_out.e'
+  [../]
+[]
