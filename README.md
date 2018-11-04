@@ -1,5 +1,5 @@
-GECKO
-=====
+GEC 2018 Tutorial
+=================
 
 This is the Tutorial Application for the GEC 2018 MOOSE Workshop.
 
