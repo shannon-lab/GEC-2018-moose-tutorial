@@ -1,8 +1,11 @@
 [Mesh]
-  type = GeneratedMesh # Generates lines, rectangles, and rectangular prisms
-  dim = 1 # Mesh dimension
-  nx = 20 # Number of elements in the x direction
-  xmax = 2.54 # (cm) Distance between the plates
+  [gmg]
+    type = GeneratedMeshGenerator # Generates lines, rectangles, and rectangular prisms
+    dim = 1 # Mesh dimension
+    nx = 20 # Number of elements in the x direction
+    xmax = 2.54 # (cm) Distance between the plates
+  []
+  coord_type = XYZ  # Cartesian coordinate system
 []
 
 [Variables]
@@ -34,12 +37,11 @@
 
 [Problem]
   type = FEProblem  # The "normal" type of Finite Element Problem in MOOSE
-  coord_type = XYZ  # Cartesian coordinate system
 []
 
 [Executioner]
   type = Steady # Steady state problem
-  solve_type = 'PJFNK' # Preconditioned Jacobian Free Newton Krylov
+  solve_type = 'NEWTON' # Newton solver
   petsc_options_iname = '-pc_type -pc_hypre_type' # PetSc command line options that match with the values below
   petsc_options_value = 'hypre boomeramg'
 []

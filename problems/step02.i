@@ -1,8 +1,11 @@
 [Mesh]
-  type = GeneratedMesh
-  dim = 1
-  nx = 100
-  xmax = 2.54
+  [gmg]
+    type = GeneratedMeshGenerator
+    dim = 1
+    nx = 100
+    xmax = 2.54
+  []
+  coord_type = XYZ
 []
 
 [Variables]
@@ -35,12 +38,11 @@
 
 [Problem]
   type = FEProblem
-  coord_type = XYZ
 []
 
 [Executioner]
   type = Steady
-  solve_type = 'PJFNK'
+  solve_type = 'NEWTON'
   petsc_options_iname = '-pc_type -pc_hypre_type'
   petsc_options_value = 'hypre boomeramg'
 []

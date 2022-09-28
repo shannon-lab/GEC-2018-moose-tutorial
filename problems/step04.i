@@ -1,8 +1,11 @@
 [Mesh]
-  type = GeneratedMesh
-  dim = 1
-  nx = 100
-  xmax = 0.0254
+  [gmg]
+    type = GeneratedMeshGenerator
+    dim = 1
+    nx = 100
+    xmax = 0.0254
+  []
+  coord_type = XYZ
 []
 
 [Variables]
@@ -53,7 +56,6 @@
 
 [Problem]
   type = FEProblem
-  coord_type = XYZ
 []
 
 [Executioner]
@@ -61,7 +63,7 @@
   dt = 7.37464e-09 # 10 timesteps per period
   end_time = 7.37464e-07 # 10 periods
   nl_rel_tol = 1e-07
-  solve_type = 'PJFNK'
+  solve_type = 'NEWTON'
   petsc_options_iname = '-pc_type -pc_hypre_type'
   petsc_options_value = 'hypre boomeramg'
 []
