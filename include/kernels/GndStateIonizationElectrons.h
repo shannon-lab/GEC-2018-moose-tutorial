@@ -1,5 +1,4 @@
-#ifndef GNDSTATEIONIZATIONELECTRONS_H
-#define GNDSTATEIONIZATIONELECTRONS_H
+#pragma once
 
 #include "Kernel.h"
 
@@ -27,5 +26,3 @@ private:
 
   const VariableValue & _mean_en;
 };
-
-#endif // GNDSTATEIONIZATIONELECTRONS_H

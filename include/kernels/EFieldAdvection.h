@@ -1,5 +1,4 @@
-#ifndef EFIELDADVECTION_H
-#define EFIELDADVECTION_H
+#pragma once
 
 #include "Kernel.h"
 
@@ -30,5 +29,3 @@ private:
 
   unsigned int _potential_id;
 };
-
-#endif // EFIELDADVECTION_H

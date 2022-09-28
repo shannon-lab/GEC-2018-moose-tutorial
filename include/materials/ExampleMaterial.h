@@ -1,5 +1,4 @@
-#ifndef EXAMPLEMATERIAL_H
-#define EXAMPLEMATERIAL_H
+#pragma once
 
 #include "Material.h"
 
@@ -22,5 +21,3 @@ protected:
 
   MaterialProperty<Real> & _diffusivity;
 };
-
-#endif // EXAMPLEMATERIAL_H

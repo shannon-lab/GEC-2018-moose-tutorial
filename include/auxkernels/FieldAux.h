@@ -1,5 +1,4 @@
-#ifndef FIELDAUX_H
-#define FIELDAUX_H
+#pragma once
 
 #include "AuxKernel.h"
 
@@ -18,5 +17,3 @@ protected:
 
   const VariableGradient & _grad_potential;
 };
-
-#endif // FIELDAUX_H

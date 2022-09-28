@@ -1,5 +1,4 @@
-#ifndef EXAMPLEMATDIFFUSION_H
-#define EXAMPLEMATDIFFUSION_H
+#pragma once
 
 // Including the "Diffusion" Kernel here so we can extend it
 #include "Diffusion.h"
@@ -27,5 +26,3 @@ protected:
   // Will be set from active material
   const MaterialProperty<Real> & _diffusivity;
 };
-
-#endif // EXAMPLEMATDIFFUSION_H

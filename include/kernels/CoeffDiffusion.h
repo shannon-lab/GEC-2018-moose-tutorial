@@ -1,5 +1,4 @@
-#ifndef COEFFDIFFUSION_H
-#define COEFFDIFFUSION_H
+#pragma once
 
 // Including the "Diffusion" Kernel here so we can extend it
 #include "Diffusion.h"
@@ -26,5 +25,3 @@ protected:
   // Will be set from the input file
   Real _diffusivity;
 };
-
-#endif // COEFFDIFFUSION_H
