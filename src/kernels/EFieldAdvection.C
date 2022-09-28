@@ -2,11 +2,10 @@
 
 registerMooseObject("TutorialApp", EFieldAdvection);
 
-template <>
 InputParameters
-validParams<EFieldAdvection>()
+EFieldAdvection::validParams()
 {
-  InputParameters params = validParams<Kernel>();
+  InputParameters params = Kernel::validParams();
   params.addRequiredCoupledVar("potential", "The electric potential.");
   params.addRequiredParam<Real>("mobility", "Electron mobility.");
   params.addRequiredParam<Real>("sign", "Species charge sign (1.0 or -1.0).");

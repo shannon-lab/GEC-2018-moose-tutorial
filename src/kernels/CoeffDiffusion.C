@@ -2,12 +2,11 @@
 
 registerMooseObject("TutorialApp", CoeffDiffusion);
 
-template <>
 InputParameters
-validParams<CoeffDiffusion>()
+CoeffDiffusion::validParams()
 {
   // Start with the parameters from our parent kernel
-  InputParameters params = validParams<Diffusion>();
+  InputParameters params = Diffusion::validParams();
 
   // Now add any extra parameters that this class needs:
 

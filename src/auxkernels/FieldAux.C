@@ -2,11 +2,10 @@
 
 registerMooseObject("TutorialApp", FieldAux);
 
-template <>
 InputParameters
-validParams<FieldAux>()
+FieldAux::validParams()
 {
-  InputParameters params = validParams<AuxKernel>();
+  InputParameters params = AuxKernel::validParams();
   params.addRequiredCoupledVar("potential", "The potential variable.");
   return params;
 }

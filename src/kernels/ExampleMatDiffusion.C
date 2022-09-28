@@ -2,12 +2,11 @@
 
 registerMooseObject("TutorialApp", ExampleMatDiffusion);
 
-template <>
 InputParameters
-validParams<ExampleMatDiffusion>()
+ExampleMatDiffusion::validParams()
 {
   // Start with the parameters from our parent kernel
-  InputParameters params = validParams<Diffusion>();
+  InputParameters params = Diffusion::validParams();
   // This doesn't need any more parameters, since diffusivity
   // is being called from a material.
   return params;

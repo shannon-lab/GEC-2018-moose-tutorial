@@ -2,14 +2,11 @@
 
 #include "MooseApp.h"
 
-class TutorialApp;
-
-template <>
-InputParameters validParams<TutorialApp>();
-
 class TutorialApp : public MooseApp
 {
 public:
+  static InputParameters validParams();
+
   TutorialApp(InputParameters parameters);
   virtual ~TutorialApp();
 

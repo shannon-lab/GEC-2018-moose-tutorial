@@ -2,17 +2,11 @@
 
 #include "Kernel.h"
 
-class GndStateIonizationElectrons;
-
-template <>
-InputParameters validParams<GndStateIonizationElectrons>();
-
-/**
- *
- */
 class GndStateIonizationElectrons : public Kernel
 {
 public:
+  static InputParameters validParams();
+
   GndStateIonizationElectrons(const InputParameters & parameters);
 
 protected:

@@ -3,11 +3,6 @@
 // Including the "Diffusion" Kernel here so we can extend it
 #include "Diffusion.h"
 
-class ExampleMatDiffusion;
-
-template <>
-InputParameters validParams<ExampleMatDiffusion>();
-
 /**
  * Computes the residual contribution: D * grad_u * grad_phi, where
  * D is defined via a material.
@@ -15,6 +10,8 @@ InputParameters validParams<ExampleMatDiffusion>();
 class ExampleMatDiffusion : public Diffusion
 {
 public:
+  static InputParameters validParams();
+
   ExampleMatDiffusion(const InputParameters & parameters);
 
 protected:

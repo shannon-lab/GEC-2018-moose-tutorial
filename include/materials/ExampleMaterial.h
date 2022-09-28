@@ -2,11 +2,6 @@
 
 #include "Material.h"
 
-class ExampleMaterial;
-
-template <>
-InputParameters validParams<ExampleMaterial>();
-
 /**
  *  An example material class for providing a derived Diffusion
  *  kernel class with a diffusiity parameter
@@ -14,6 +9,8 @@ InputParameters validParams<ExampleMaterial>();
 class ExampleMaterial : public Material
 {
 public:
+  static InputParameters validParams();
+
   ExampleMaterial(const InputParameters & parameters);
 
 protected:

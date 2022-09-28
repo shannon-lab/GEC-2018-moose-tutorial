@@ -2,14 +2,11 @@
 
 #include "AuxKernel.h"
 
-class FieldAux;
-
-template <>
-InputParameters validParams<FieldAux>();
-
 class FieldAux : public AuxKernel
 {
 public:
+  static InputParameters validParams();
+
   FieldAux(const InputParameters & parameters);
 
 protected:

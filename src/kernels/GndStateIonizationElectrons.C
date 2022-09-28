@@ -2,11 +2,10 @@
 
 registerMooseObject("TutorialApp", GndStateIonizationElectrons);
 
-template <>
 InputParameters
-validParams<GndStateIonizationElectrons>()
+GndStateIonizationElectrons::validParams()
 {
-  InputParameters params = validParams<Kernel>();
+  InputParameters params = Kernel::validParams();
   params.addRequiredCoupledVar("second_species", "Second species involved in reaction.");
   params.addRequiredCoupledVar("mean_energy", "Electron mean energy variable name.");
   return params;

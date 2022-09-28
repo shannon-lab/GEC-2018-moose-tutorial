@@ -2,11 +2,10 @@
 
 registerMooseObject("TutorialApp", ExampleMaterial);
 
-template <>
 InputParameters
-validParams<ExampleMaterial>()
+ExampleMaterial::validParams()
 {
-  InputParameters params = validParams<Material>();
+  InputParameters params = Material::validParams();
   return params;
 }
 

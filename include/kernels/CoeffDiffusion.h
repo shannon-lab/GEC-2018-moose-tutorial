@@ -3,17 +3,14 @@
 // Including the "Diffusion" Kernel here so we can extend it
 #include "Diffusion.h"
 
-class CoeffDiffusion;
-
-template <>
-InputParameters validParams<CoeffDiffusion>();
-
 /**
  * Computes the residual contribution: D * grad_u * grad_phi
  */
 class CoeffDiffusion : public Diffusion
 {
 public:
+  static InputParameters validParams();
+
   CoeffDiffusion(const InputParameters & parameters);
 
 protected:
