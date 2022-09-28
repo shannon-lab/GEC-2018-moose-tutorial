@@ -1,8 +1,11 @@
 [Mesh]
-  type = GeneratedMesh # Generates lines, rectangles, and rectangular prisms
-  dim = 1 # Mesh dimension
-  nx = 20 # Number of elements in the x direction
-  xmax = 2.54 # (cm) Distance between the plates
+  [gmg]
+    type = GeneratedMeshGenerator # Generates lines, rectangles, and rectangular prisms
+    dim = 1 # Mesh dimension
+    nx = 20 # Number of elements in the x direction
+    xmax = 2.54 # (cm) Distance between the plates
+  []
+  coord_type = XYZ  # Cartesian coordinate system
 []
 
 [Variables]
@@ -34,7 +37,6 @@
 
 [Problem]
   type = FEProblem  # The "normal" type of Finite Element Problem in MOOSE
-  coord_type = XYZ  # Cartesian coordinate system
 []
 
 [Executioner]

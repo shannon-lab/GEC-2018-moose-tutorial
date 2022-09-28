@@ -1,8 +1,11 @@
 [Mesh]
-  type = GeneratedMesh
-  dim = 1
-  nx = 1000
-  xmax = 2.54
+  [gmg]
+    type = GeneratedMeshGenerator
+    dim = 1
+    nx = 1000
+    xmax = 2.54
+  []
+  coord_type = XYZ
 []
 
 [Variables]
@@ -101,7 +104,6 @@
 
 [Problem]
   type = FEProblem
-  coord_type = XYZ
 []
 
 [Executioner]
