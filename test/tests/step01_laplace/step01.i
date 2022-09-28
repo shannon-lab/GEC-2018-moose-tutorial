@@ -39,7 +39,7 @@
 
 [Executioner]
   type = Steady # Steady state problem
-  solve_type = 'PJFNK' # Preconditioned Jacobian Free Newton Krylov
+  solve_type = 'NEWTON' # Newton solver
   petsc_options_iname = '-pc_type -pc_hypre_type' # PetSc command line options that match with the values below
   petsc_options_value = 'hypre boomeramg'
 []
